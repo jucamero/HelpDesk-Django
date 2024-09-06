@@ -19,3 +19,8 @@
         {{ error }} <!-- Aquí aparece "Credenciales incorrectas" -->
     </div>
 {% endif %}
+
+<p>¿Aún no estás registrado? <a href="{% url 'register' %}">Regístrate aquí</a></p>
+
+<a href="{% url 'home' %}" class="btn btn-primary">Volver al inicio</a>
+
