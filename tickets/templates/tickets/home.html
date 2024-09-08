@@ -5,15 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpDesk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+        .navbar {
+            margin-bottom: 20px;
+        }
+        .jumbotron {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 2rem;
+            border-radius: 0.3rem;
+        }
+        .btn-custom {
+            border-radius: 20px;
+        }
+    </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">HelpDesk</a>
+            <div class="ml-auto">
+                <a href="{% url 'login' %}" class="btn btn-light btn-custom">Iniciar sesión</a>
+                <a href="{% url 'register' %}" class="btn btn-light btn-custom">Registrarse</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="jumbotron mt-4">
             <h1 class="display-4">¡Bienvenido a nuestro sistema de soporte!</h1>
-            <p class="lead" >¡Gestiona tus tickets de forma simple y eficiente!</p>
+            <p class="lead">¡Gestiona tus tickets de forma simple y eficiente!</p>
             <hr class="my-4">
-            <p>Si ya tienes una cuenta, puedes iniciar sesión <a href="{% url 'login' %}">aquí</a>.</p>
-            <p>Si no tienes una cuenta, puedes registrarte <a href="{% url 'register' %}">aquí</a>.</p>
+            <!-- <p>Si ya tienes una cuenta, puedes iniciar sesión <a href="{% url 'login' %}">aquí</a>.</p>
+            <p>Si no tienes una cuenta, puedes registrarte <a href="{% url 'register' %}">aquí</a>.</p> -->
         </div>
     </div>
 

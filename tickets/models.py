@@ -9,6 +9,9 @@ class CustomUser(AbstractUser):
     ]
     role = models.CharField(max_length=10, choices=ROLE_CHOICES, default='user')
 
+    def __str__(self):
+        return self.username
+"""
 class Ticket(models.Model):
     PRIORITY_CHOICES = [
         ('low', 'Leve'),
@@ -23,3 +26,4 @@ class Ticket(models.Model):
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     assigned_to = models.ForeignKey(CustomUser, related_name='assigned_tickets', null=True, blank=True, on_delete=models.SET_NULL)
     created_at = models.DateTimeField(auto_now_add=True)
+"""
