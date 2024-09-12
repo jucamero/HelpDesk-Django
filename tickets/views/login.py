@@ -9,7 +9,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home_user')  # Redirige a la vista 'home_user'
+            return redirect('redirected')  # Redirige a la vista 'redirected'
         else:
             return render(request, 'tickets/login.html', {'error': '¡Credenciales incorrectas, intenta de nuevo!'})
     return render(request, 'tickets/login.html')
