@@ -12,11 +12,11 @@ def redirected(request):
 
     # Redirige según el rol del usuario
     if request.user.role == 'user':
-        return render(request, '')
+        return redirect('home_user')
     elif request.user.role == 'support1':
-        return render(request, '')
+        return redirect('')
     elif request.user.role == 'support2':
-        return render(request, '')
+        return redirect('')
 
     # En caso de que el rol no coincida con ninguno de los definidos
     return redirect('login')  # O cualquier otra página de error o logout
