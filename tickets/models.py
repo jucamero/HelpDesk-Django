@@ -22,6 +22,7 @@ class Ticket(models.Model):
     ]
 
     STATUS_CHOICES = [
+        ('sin_asignar', 'Sin asignar'),
         ('en_proceso', 'En proceso'),
         ('escalado', 'Escalado'),
         ('terminado', 'Terminado'),
@@ -31,7 +32,7 @@ class Ticket(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     priority = models.CharField(max_length=10, choices=PRIORITY_CHOICES)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='en_proceso')
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='sin_asignar')
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='tickets_created')
     assigned_to = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='tickets_assigned')
     created_at = models.DateTimeField(auto_now_add=True)
