@@ -22,12 +22,26 @@
         .btn-custom {
             border-radius: 20px;
         }
+        .header-title {
+            color: #000; /* Color negro para el texto HELPDESK */
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">HelpDesk</a>
+            <span class="header-title">HELPDESK</span>
             <div class="ml-auto">
                 <a href="{% url 'login' %}" class="btn btn-light btn-custom">Iniciar sesión</a>
                 <a href="{% url 'register' %}" class="btn btn-light btn-custom">Registrarse</a>
@@ -40,10 +54,12 @@
             <h1 class="display-4">¡Bienvenido a nuestro sistema de soporte!</h1>
             <p class="lead">¡Gestiona tus tickets de forma simple y eficiente!</p>
             <hr class="my-4">
-            <!-- <p>Si ya tienes una cuenta, puedes iniciar sesión <a href="{% url 'login' %}">aquí</a>.</p>
-            <p>Si no tienes una cuenta, puedes registrarte <a href="{% url 'register' %}">aquí</a>.</p> -->
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 HelpDesk. Todos los derechos reservados.</p>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

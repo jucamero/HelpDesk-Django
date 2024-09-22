@@ -15,8 +15,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
     path('redirected', redirected, name='redirected' ), #url para redireccionar a la pagina corresp. segun rol
-    
-
     path('my-tickets/', home_user_tickets, name='home_user_tickets'), #Url cuando el user da el boton de ver ticket creados en home_user
     path('home_user/', home_user, name='home_user'),  
     path('home_support1/', home_support1, name='home_support1'), 

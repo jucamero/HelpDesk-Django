@@ -6,19 +6,19 @@ from django.contrib.auth import logout
 @login_required
 def home_support1(request):
     if request.user.role != 'support1':
-        return redirect('login')  # Redirige a login si el usuario no es soporte nivel 1
+        return redirect('login')
 
     if request.method == 'POST':
         ticket_id = request.POST.get('ticket_id')
         new_status = request.POST.get('status')
         if ticket_id and new_status:
             ticket = get_object_or_404(Ticket, id=ticket_id)
-            if ticket.status in ['en_proceso', 'escalado']:
+            if ticket.status in ['sin_asignar', 'en_proceso', 'escalado', 'devuelto']:
                 ticket.status = new_status
                 ticket.save()
             return redirect('home_support1')
 
-    tickets = Ticket.objects.all()  # Soporte nivel 1 ve todos los tickets
+    tickets = Ticket.objects.filter(status__in=['sin_asignar', 'en_proceso', 'escalado', 'devuelto', 'terminado'])
     return render(request, 'tickets/home_support1.html', {'tickets': tickets})
 
 # Lógica de logout

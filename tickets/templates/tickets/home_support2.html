@@ -9,7 +9,6 @@
     <div class="container mt-5">
         <h2 class="mb-4">Tickets Soporte Nivel 2</h2>
         <div class="mb-3">
-            <!-- Enlace de logout -->
             <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
         </div>
         <table class="table">
@@ -19,7 +18,7 @@
                     <th>Descripción</th>
                     <th>Prioridad</th>
                     <th>Estado</th>
-                    <th>Usuario</th> <!-- Nueva columna para el usuario -->
+                    <th>Usuario</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -30,12 +29,10 @@
                     <td>{{ ticket.description }}</td>
                     <td>{{ ticket.get_priority_display }}</td>
                     <td>{{ ticket.get_status_display }}</td>
-                    <td>{{ ticket.created_by.username }}</td> <!-- Muestra el nombre del usuario -->
+                    <td>{{ ticket.created_by.username }}</td>
                     <td>
-                        <!-- Botón para abrir el modal de edición -->
                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editModal{{ ticket.id }}">Editar</button>
 
-                        <!-- Modal para editar ticket -->
                         <div class="modal fade" id="editModal{{ ticket.id }}" tabindex="-1" aria-labelledby="editModalLabel{{ ticket.id }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -47,23 +44,6 @@
                                         <form action="{% url 'home_support2' %}" method="POST">
                                             {% csrf_token %}
                                             <input type="hidden" name="ticket_id" value="{{ ticket.id }}">
-                                            <div class="mb-3">
-                                                <label for="title" class="form-label">Título</label>
-                                                <input type="text" class="form-control" id="title" name="title" value="{{ ticket.title }}" required>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="description" class="form-label">Descripción</label>
-                                                <textarea class="form-control" id="description" name="description" rows="3" required>{{ ticket.description }}</textarea>
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="priority" class="form-label">Nivel de Urgencia</label>
-                                                <select class="form-control" id="priority" name="priority" required>
-                                                    <option value="low" {% if ticket.priority == 'low' %}selected{% endif %}>Leve</option>
-                                                    <option value="medium" {% if ticket.priority == 'medium' %}selected{% endif %}>Moderada</option>
-                                                    <option value="high" {% if ticket.priority == 'high' %}selected{% endif %}>Grave</option>
-                                                    <option value="urgent" {% if ticket.priority == 'urgent' %}selected{% endif %}>Urgente</option>
-                                                </select>
-                                            </div>
                                             <div class="mb-3">
                                                 <label for="status" class="form-label">Estado</label>
                                                 <select class="form-control" id="status" name="status" required>
@@ -91,7 +71,6 @@
         </table>
     </div>
     
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

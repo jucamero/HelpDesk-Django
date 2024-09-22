@@ -18,7 +18,7 @@ def home_support2(request):
                 ticket.save()
             return redirect('home_support2')
 
-    tickets = Ticket.objects.filter(status='escalado')  # Soporte nivel 2 ve solo tickets escalados
+    tickets = Ticket.objects.filter(status__in=['escalado', 'terminado'])  # Soporte nivel 2 ve tickets escalados y terminados
     return render(request, 'tickets/home_support2.html', {'tickets': tickets})
 
 # Lógica de logout
