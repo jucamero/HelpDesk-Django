@@ -7,28 +7,30 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background: url('https://source.unsplash.com/random/1920x1080') no-repeat center center fixed;
-            background-size: cover;
-            color: #fff;
+            background: #ffffff; /* Fondo blanco */
+            color: #333; /* Color del texto */
         }
         .navbar {
-            margin-bottom: 20px;
+            background-color: rgba(0, 0, 0, 0.8); /* Color del header */
+            margin-bottom: 0;
+        }
+        .navbar-brand {
+            color: white; /* Color del texto en el header */
         }
         .jumbotron {
             background: rgba(0, 0, 0, 0.6);
             padding: 2rem;
             border-radius: 0.3rem;
+            color: white; /* Texto blanco en el jumbotron */
         }
-        .btn-custom {
-            border-radius: 20px;
-        }
-        .header-title {
-            color: #000; /* Color negro para el texto HELPDESK */
-            font-size: 1.5rem;
-            font-weight: bold;
+        .feature {
+            background: rgba(200, 200, 200, 0.8); /* Fondo gris claro */
+            padding: 1.5rem;
+            border-radius: 0.3rem;
+            margin: 1rem 0;
         }
         footer {
-            background: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.8); /* Color del footer */
             color: #fff;
             text-align: center;
             padding: 1rem 0;
@@ -41,7 +43,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <span class="header-title">HELPDESK</span>
+            <span class="navbar-brand font-weight-bold" style="font-size: 24px;">HELPDESK</span>
             <div class="ml-auto">
                 <a href="{% url 'login' %}" class="btn btn-light btn-custom">Iniciar sesión</a>
                 <a href="{% url 'register' %}" class="btn btn-light btn-custom">Registrarse</a>
@@ -54,6 +56,23 @@
             <h1 class="display-4">¡Bienvenido a nuestro sistema de soporte!</h1>
             <p class="lead">¡Gestiona tus tickets de forma simple y eficiente!</p>
             <hr class="my-4">
+            <p>En nuestro sistema, puedes crear, seguir y gestionar tus tickets de soporte de manera rápida y efectiva.</p>
+            <p>Estos son algunos de los beneficios que ofrecemos:</p>
+        </div>
+
+        <div class="feature">
+            <h4>🌟 Soporte Rápido</h4>
+            <p>Atendemos tus solicitudes de manera ágil para que recibas ayuda cuando más lo necesitas.</p>
+        </div>
+
+        <div class="feature">
+            <h4>🔔 Notificaciones</h4>
+            <p>Recibe alertas sobre el estado de tus tickets para estar siempre informado.</p>
+        </div>
+
+        <div class="feature">
+            <h4>🛠️ Gestión Eficiente</h4>
+            <p>Nuestro sistema permite a los analistas gestionar tickets de manera efectiva, asegurando una rápida resolución.</p>
         </div>
     </div>
 
